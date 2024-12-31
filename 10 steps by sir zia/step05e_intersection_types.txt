@@ -1,0 +1,91 @@
+app.ts
+
+interface Student {
+    student_id: number;
+    name: string;
+  }
+    
+interface Teacher {
+    teacher_Id: number;
+    teacher_name: string;
+}
+    
+type intersected_type = Student & Teacher;
+    
+let obj1: intersected_type = {
+    student_id: 3232,
+    name: "rita",
+    teacher_Id: 7873,
+    teacher_name: "seema",
+};
+    
+console.log(obj1.teacher_Id);
+console.log(obj1.name);
+
+readme.md (asal app.ts hai)
+
+What are intersection types in typescript
+
+What are intersection types in Typescript ?
+Last Updated : 14 Mar, 2022
+In Typescript, Although intersection and union types are similar, they are employed in completely different ways. An intersection type is a type that merges several kinds into one. This allows you to combine many types to create a single type with all of the properties that you require. An object of this type will have members from all of the types given. The ‘&’ operator is used to create the intersection type.
+
+Example 1: Creating an intersected type: In this example, two interfaces named student and teacher are created. Intersected type is created by using ‘&’ between student and teacher. Intersected type contains all the properties of the two interfaces. An obj of intersection type is created and values are retrieved from it. We can not use a property without assigning it to the intersection type object.
+
+interface Student { 
+  student_id: number; 
+  name: string; 
+} 
+  
+interface Teacher { 
+  Teacher_Id: number; 
+  teacher_name: string; 
+} 
+  
+type intersected_type = Student & Teacher; 
+  
+let obj1: intersected_type = { 
+  student_id: 3232, 
+  name: "rita", 
+  Teacher_Id: 7873, 
+  teacher_name: "seema", 
+}; 
+  
+console.log(obj1.Teacher_Id); 
+console.log(obj1.name);
+Output:
+
+7873
+rita
+Example 2: In this example, we create two interfaces A and B, in which there are two properties named ‘feauA’ and ‘feauB’. But the type of feauA isn’t the same in both the interfaces, when we try to assign a value 20 to feauA typescript compiler raises an error as the intersection type is of the type ‘string & number’. If we try to assign a string to feauA, the error is not raised as to when intersected the type is String.
+
+interface A { 
+  feauA: string; 
+  feauB: string; 
+} 
+  
+interface B { 
+  feauA: number; 
+  feauB: string; 
+} 
+  
+type AB = A & B; 
+  
+  
+let obj1: AB; 
+let obj2: AB; 
+  
+// Error, Type '20' is not assignable 
+// to type 'string & number' 
+obj1.feauA = 20;  
+console.log(obj1.feauA); 
+  
+obj2.feauB = "c"; 
+console.log(obj2.feauB);
+Output:
+
+error TS2322: Type 'number' is not assignable to type 'never'.
+obj1.feauA = 20; 
+// Error, Type '20' is not assignable
+// to type 'string & number'
+

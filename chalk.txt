@@ -1,0 +1,4 @@
+chalk install 
+
+npm i chalk
+chalk ki koi dependency nh install hoti na koi tsconfig.json aur package.json mein koi changes hoty hain.

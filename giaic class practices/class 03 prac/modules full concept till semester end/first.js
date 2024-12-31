@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.my_city = exports.myHome = exports.person_2 = exports.person = void 0;
+let number1 = 7;
+let number4 = 4;
+exports.default = number1;
+exports.person = "Azhar";
+exports.person_2 = "Uzair";
+let myHome = "Sweet Home";
+exports.myHome = myHome;
+let my_city = "Karachi";
+exports.my_city = my_city;

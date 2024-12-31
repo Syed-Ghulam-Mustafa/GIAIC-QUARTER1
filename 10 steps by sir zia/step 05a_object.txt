@@ -1,0 +1,61 @@
+app.ts 
+
+let teacher = {
+    name: "Zeeshan",
+    experience: "10"
+}
+
+console.log(teacher.name);
+console.log(teacher["experience"]);
+
+
+// Type Declaration
+let student : {
+    name: string,
+    age: number
+}
+
+student = {
+    name: "Hira",
+    age: 30
+}
+
+console.log(student["name"]);
+console.log(student.age);
+
+readme.md
+
+types of objects (ye alag link tha) (mota mota prhna hai)
+
+Object Types
+In JavaScript, the fundamental way that we group and pass around data is through objects. In TypeScript, we represent those through object types.
+
+As we’ve seen, they can be anonymous:
+
+function greet(person: { name: string; age: number }) {
+  return "Hello " + person.name;
+}
+Try
+or they can be named by using either an interface:
+
+interface Person {
+  name: string;
+  age: number;
+}
+ 
+function greet(person: Person) {
+  return "Hello " + person.name;
+}
+Try
+or a type alias:
+
+type Person = {
+  name: string;
+  age: number;
+};
+ 
+function greet(person: Person) {
+  return "Hello " + person.name;
+}
+Try
+In all three examples above, we’ve written functions that take objects that contain the property name (which must be a string) and age (which must be a number).

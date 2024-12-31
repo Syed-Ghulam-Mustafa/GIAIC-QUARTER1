@@ -1,0 +1,3 @@
+"todo" aur "addMore" donu objects mein errors hain unko resolve krna h.
+
+Syeda Shanzay yt channel, Create a Todo List in Typescript | How to Make Todo List Using Typescript-Governor's IT Initiative video 22:32 / 24:03 mins.

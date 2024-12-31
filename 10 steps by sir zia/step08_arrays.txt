@@ -1,0 +1,227 @@
+app.ts
+
+let array1 : number[] = [5, 6, 7];//correct syntax
+console.log(array1[1]);//correct syntax
+let array2:Array<number> = [1, 2, 3];//alternative correct syntax
+let array3 : number[] = [];//correct syntax to define an empty array
+
+let array4: number[] = new number[2];//error
+
+let array5: number[] = [];
+array5.push(1234);//dynamically adding
+
+
+readme.md (asal app.ts h)
+
+Arrays
+
+Arrays
+
+
+Arrays
+To specify the type of an array like [1, 2, 3], you can use the syntax number[]; this syntax works for any type (e.g. string[] is an array of strings, and so on). You may also see this written as Array<number>, which means the same thing. We’ll learn more about the syntax T<U> when we cover generics.
+
+Note that [number] is a different thing; refer to the section on Tuples.
+
+any
+TypeScript also has a special type, any, that you can use whenever you don’t want a particular value to cause typechecking errors.
+
+When a value is of type any, you can access any properties of it (which will in turn be of type any), call it like a function, assign it to (or from) a value of any type, or pretty much anything else that’s syntactically legal:
+
+let obj: any = { x: 0 };
+// None of the following lines of code will throw compiler errors.
+// Using `any` disables all further type checking, and it is assumed
+// you know the environment better than TypeScript.
+obj.foo();
+obj();
+obj.bar = 100;
+obj = "hello";
+const n: number = obj;
+Try
+The any type is useful when you don’t want to write out a long type just to convince TypeScript that a particular line of code is okay.
+
+noImplicitAny
+When you don’t specify a type, and TypeScript can’t infer it from context, the compiler will typically default to any.
+
+You usually want to avoid this, though, because any isn’t type-checked. Use the compiler flag noImplicitAny to flag any implicit any as an error.
+
+
+20 Array methods in typescript you need to know with examples
+
+
+20 Array methods in Typescript you need to know with examples
+Pre-built functions have always been proven time-savers. Find the list of utility functions in typescript with demonstrations.
+
+1. indexOf()
+Every array element has an index. This method returns the index of an element in an array.
+
+a. If specific element doesn’t exist within array, indexOf() returns -1.
+
+Hence, this method can be used to check whether an element exists in an array or not.
+
+syntax:
+array.indexOf(element)
+
+
+2. lastIndexOf()
+This method returns an array’s last element’s index.
+
+a. If an array is empty then, it returns -1 as of the indexOf() function.
+b. If an array has one more same element, then it returns the maximum index of duplicate items.
+
+syntax:
+array.lastIndexOf(element)
+
+
+3. concat()
+As the name suggests, this method simply merges two arrays and returns a combined result.
+
+syntax:
+array1.concat(array2)
+
+
+4. join()
+According to the name, this method joins all elements of the array into a string with a given operator.
+
+a. If an operator is not given, it joins elements with a comma(,).
+
+syntax:
+array.join(operator)
+
+
+5. push()
+This method pushes/adds one or more elements to the array at the last of an array.
+
+syntax:
+array.push(element)
+
+
+6. pop()
+This method pops/removes the last element from an array.
+
+syntax:
+array.pop()
+
+
+7. reverse()
+As per the name, this method reverts the order of an array.
+
+syntax:
+array.reverse()
+
+
+8. shift()
+This method removes starting(first) element from an array and returns the removed element.
+We can say that it’s the exact opposite of pop() method, which removes the last element and returns the result.
+
+syntax:
+array.shift()
+
+
+9. unshift()
+It has the exact opposite behavior to the shift() method. It adds an element at starting of an array and returns a new array.
+
+syntax:
+array.unshift(element)
+
+
+10. slice()
+This method cuts an array, in whichever manner we want and returns the trimmed array.
+a. It excludes the last index from an argument.
+
+syntax:
+array.slice(start_index, end_index)
+
+
+11. splice()
+This method can be used for multiple purposes. For,
+1. Add an element to an array
+2. Replace specific elements within an array
+3. Remove specific elements from an array
+
+syntax:
+array.splice(index, number of elements to be removed, element1,..,elementN)
+
+
+12. toString()
+This method converts an array to a comma-separated string.
+
+syntax:
+array.toString()
+
+
+13. filter()
+This method can also be used in multiple use cases. Like, such as finding even numbers from an array, finding common items from two arrays, or getting a distinct array.
+
+Basically, it checks the conditions which are provided and returns a filtered array.
+
+syntax:
+array.filter(callback)
+
+
+14. map()
+This method creates a new array with the results of calling a provided function on every element in this array.
+In the example, we’ve invoked map() with Math.ceil which returns the lowest maximum number.
+
+syntax:
+array.map(callback)
+
+
+15. every()
+This method tests whether all the elements in an array pass the test implemented by the provided function.
+
+In the example, we have checked for even numbers.
+
+syntax:
+array.every(callback)
+
+
+16. reduceRight()
+This method applies a function simultaneously against two values of the array (from right to left) to reduce it to a single value.
+
+In the example, the array is reduced with the addition of an element to the previous one(right to left).
+
+syntax:
+array.reduceRight(callback)
+
+
+17. reduce()
+This method behaves the exact opposite of the reduceRight() method.
+It applies a function simultaneously against two values of the array (from left to right) to reduce it to a single value.
+
+In the example, an array is reduced with the subtraction of an element from the previous one(left to right).
+
+syntax:
+array.reduce(callback)
+
+
+18. some()
+This method is generally used for testing purposes.
+i.e. To know whether at least a single item from an array is fulfilling a given condition or not.
+
+In the example, again we’ve checked for at least a single even number present in an array.
+
+syntax:
+array.some(callback)
+
+
+19. sort()
+As the name suggests, this method arranges array elements in sorting orders.
+
+In the example, we’ve sorted an array in ascending order. It will sort in descending order, with the condition b-a instead of a-b . similarly, we do in js.
+
+syntax:
+array.sort(callback)
+
+
+20. fill()
+This method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length) and returns the modified array.
+
+a. It can add new elements to specific(multiple) positions
+
+syntax:
+array.fill(value, start_index, end_index)
+
+
+
+

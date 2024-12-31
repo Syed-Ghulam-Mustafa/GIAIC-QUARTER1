@@ -1,0 +1,40 @@
+app.ts
+
+function buildName(firstName: string, ...restOfName: string[]) {//Named function with Rest parameters
+	return firstName + " " + restOfName.join(" ");
+}
+
+var employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+
+
+
+
+//anonymous function type with Rest parameters
+var buildNameFun: (fname: string, ...rest: string[])=>string =
+function (firstName: string, ...restOfName: string[]) {
+	return firstName + " " + restOfName.join(" ");
+}
+
+//Note: Rest, optional and default parameters can only
+// be at the end of the parameter list
+											
+						
+readme.md(asal app.ts)
+
+
+Rest Parameters
+
+Rest Parameters in TypeScript
+
+Rest Parameters in TypeScript
+Last Updated : 14 Feb, 2022
+In Typescript, we can specify an indefinite number of arguments as an array using the rest parameter syntax. A function can be called with any number of arguments using the rest parameter, regardless of how it was defined. 
+
+A rest parameter allows us to pass zero or any number of arguments of the specified type to a function. In the function definition where we specify function parameters rest parameters should always come at last or the typescript compiler will raise errors.
+
+Syntax: Below is the syntax of the rest parameter:
+
+function function_name(...rest: type[]) {
+  // Type of the is the type of the array. 
+}
+Example 1: Average of numbers using rest parameter. The below code is an example for the rest parameter where we pass in any number of arguments we want and the average of the numbers is displayed as output.

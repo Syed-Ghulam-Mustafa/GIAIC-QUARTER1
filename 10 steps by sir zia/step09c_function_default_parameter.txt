@@ -1,0 +1,68 @@
+app.ts
+
+//Named function with optional and default parameters
+//(Note that the parameter type will be optional when used with default value)
+function buildName(firstName: string, lastName = "Khan") : string {
+    if (lastName)
+        return firstName + " " + lastName;
+    else
+        return firstName;
+}
+
+let result1 = buildName("Bob");  //works correctly because last parameter is optional
+let result2 = buildName("Bob", "Adams", "Sr.");  //error, too many parameters
+let result3 = buildName("Bob", "Adams");  //correct
+
+
+
+//anonymous function type with defult parameters 
+//(Note that the parameter type will be optional when used with defult value)
+let buildName1 : (firstName: string, lastName?: string) => string = 
+function(firstName: string, lastName = "Khan") : string {
+    if (lastName)
+        return firstName + " " + lastName;
+    else
+        return firstName;
+}
+											
+						
+readme.md (asal app.ts)
+
+Default Parameters
+
+Typescript Default Parameters
+
+
+Introduction to TypeScript default parameters
+JavaScript supported default parameters since ES2015 (or ES6) with the following syntax:
+
+function name(parameter1=defaultValue1,...) {
+   // do something
+}
+Code language: JavaScript (javascript)
+In this syntax, if you don’t pass arguments or pass the undefined into the function when calling it, the function will take the default initialized values for the omitted parameters. For example:
+
+function applyDiscount(price, discount = 0.05) {
+    return price * (1 - discount);
+}
+
+console.log(applyDiscount(100)); // 95
+Code language: JavaScript (javascript)
+In this example, the applyDiscount() function has the discount parameter as a default parameter.
+
+When you don’t pass the discount argument into the applyDiscount() function, the function uses a default value which is 0.05.
+
+Similar to JavaScript, you can use default parameters in TypeScript with the same syntax:
+
+function name(parameter1:type=defaultvalue1, parameter2:type=defaultvalue2,...) {
+   //
+}
+Code language: JavaScript (javascript)
+The following example uses default parameters for the applyDiscount() function:
+
+function applyDiscount(price: number, discount: number = 0.05): number {
+    return price * (1 - discount);
+}
+
+console.log(applyDiscount(100)); // 95
+Code language: JavaScript (javascript)

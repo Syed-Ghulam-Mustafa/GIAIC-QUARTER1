@@ -1,0 +1,15 @@
+npm i inquirer. (terminal mein likhengy is se install hoga)
+us k bad phir file mein a k likhengy import inquirer from 'inquirer'
+abi b error ayga qk dev dependencies nh hn install.
+dev dependencies of inquirer. npm i --save-dev @types/inquirer
+
+file changes for inquirer..
+
+tsconfig.json
+target 2020 ya 2022 krna hai. (line 14)
+module ko NodeNext krna hai (line 28)
+moduleresoultion ko uncomment kr k NodeNext krna h(line 30)
+
+package.json
+
+"type": "module" add krwana hota h

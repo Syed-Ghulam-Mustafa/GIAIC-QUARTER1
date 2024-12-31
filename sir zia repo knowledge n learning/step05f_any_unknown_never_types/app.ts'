@@ -1,0 +1,56 @@
+// step05f_any__unknown_never_types
+
+
+// Any
+
+let myval: any;
+
+myval = true; // OK
+myval = 42; // OK
+myval = "hey!"; // OK
+myval = []; // OK
+myval = {}; // OK
+myval = Math.random; // OK
+myval = null; // OK
+myval = undefined; // OK
+myval = () => { console.log('Hey again!'); }; // OK
+
+step05f_any__unknown_never_types
+
+
+//Unknown
+
+let value: unknown;
+
+value = true; // OK
+value = 42; // OK
+value = "hey!"; // OK
+value = []; // OK
+value = {}; // OK
+value = Math.random; // OK
+value = null; // OK
+value = undefined; // OK
+value = () => { console.log('Hey again!'); }; // OK
+
+
+// Assigning a value of type unknown to variables of other types
+
+// Never
+// never kbi na khtm hony wala ye misaal di h knowledge and learning ny examples
+// b nichy esi hi hain
+
+// Function returning never must not have a reachable end point
+function error(message: string): never {
+throw new Error(message);
+}
+
+// Inferred return type is never
+function fail() {
+return error("Something failed");
+}
+
+// Function returning never must not have a reachable end point
+function infiniteLoop(): never {
+while (true) {}
+}
+

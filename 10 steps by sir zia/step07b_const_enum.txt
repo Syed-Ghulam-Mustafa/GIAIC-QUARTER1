@@ -1,0 +1,56 @@
+app.ts
+
+const enum Color {Red, Green, Blue};//starts with 0
+var c: Color = Color.Green;
+
+const enum Color1 {Red = 1, Green, Blue};
+var colorName: string = Color[2]; //Not allowed with const enums
+console.log(colorName);
+
+const enum Color2 {Red = 1, Green = 2, Blue = 4};//can assign values to all
+var colorIndex = Color2["Blue"];
+console.log(colorIndex);
+
+
+readme.md (asal app.ts h)
+
+Const Enums
+
+const
+ enums
+In most cases, enums are a perfectly valid solution. However sometimes requirements are tighter. To avoid paying the cost of extra generated code and additional indirection when accessing enum values, it’s possible to use const enums. Const enums are defined using the const modifier on our enums:
+
+const enum Enum {
+  A = 1,
+  B = A * 2,
+}
+Try
+Const enums can only use constant enum expressions and unlike regular enums they are completely removed during compilation. Const enum members are inlined at use sites. This is possible since const enums cannot have computed members.
+
+const enum Direction {
+  Up,
+  Down,
+  Left,
+  Right,
+}
+ 
+let directions = [
+  Direction.Up,
+  Direction.Down,
+  Direction.Left,
+  Direction.Right,
+];
+Try
+in generated code will become
+
+"use strict";
+let directions = [
+    0 /* Direction.Up */,
+    1 /* Direction.Down */,
+    2 /* Direction.Left */,
+    3 /* Direction.Right */,
+];
+ 
+
+
+

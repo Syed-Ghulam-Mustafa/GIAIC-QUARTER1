@@ -1,0 +1,155 @@
+callback.ts
+
+
+function myCallBack(text: string) {
+    console.log("inside myCallback " + text);
+}
+
+function callingFunction(initialText: string, callback: (text: string) => void)
+{
+    callback(initialText);
+}
+
+callingFunction("myText", myCallBack);
+
+
+promises.ts
+
+
+
+function delay(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, milliseconds);
+  });
+}
+
+//Using `then`, `catch`, and `finally`:
+delay(1000)
+  .then(() => {
+    console.log('The delay is over');
+  })
+  .catch((error) => {
+    console.error('Something went wrong:', error);
+  })
+  .finally(() => {
+    console.log('This is always executed');
+  });
+
+
+//Using `async/await`:  
+try {
+    await delay(1000);
+    console.log('Await: The delay is over');
+} catch (error) {
+    console.error('Await: Something went wrong:', error);
+} finally {
+    console.log('Await: This is always executed');
+}
+
+//Now Do Coding from the following Article
+//https://blog.logrocket.com/async-await-in-typescript/
+
+
+//Review the tutorial and convert the code in TypeScript
+//https://www.codingame.com/playgrounds/347/javascript-promises-mastering-the-asynchronous/what-is-asynchronous-in-javascript  
+  
+  
+readme.md (asal upar wali hn)
+
+
+Async Functions
+
+Define type for Function callbacks in typescript
+
+
+How to Define Type for Function Callbacks in TypeScript
+
+
+What are Callback Functions in TypeScript
+Use of Interface for Callback Type in TypeScript
+Use of Generic for Callback Type in TypeScript
+Use Type Keyword to Declare Callback Type in TypeScript
+
+
+What are Callback Functions in TypeScript
+A callback function is defined as a function passed into another function as an argument, which is then invoked inside the outer function to complete the desirable routine or action.
+
+function outerFunction(callback: () => void) {
+  callback();
+}
+The following are popular approaches to define the type of function callback in TypeScript in the developer community.
+
+Use of Interface for Callback Type in TypeScript
+TypeScript allows programmers to define a general definition for a variable or a function by declaring an interface, which helps define a function’s call signature type.
+
+Let’s consider the following code.
+
+const greeting = (message:string) => console.log(`Hello ${message}`);
+
+interface definitionInterface{
+    (message:string):void;
+}
+
+function sayHello(callback: definitionInterface) {
+  callback('World!')
+}
+sayHello(greeting);
+The interface has a call signature of definitionInterface sets the callback parameter type to string and return type of void, which means the value of callback will be ignored.
+
+Let us begin to see callback
+
+
+
+Async await in Typescript
+
+
+Introduction to async/await in TypeScript
+TypeScript is a superset of JavaScript, so async/await works the same, but with some extra goodies and type safety. TypeScript enables you to ensure type safety for the expected result and even check for type errors, which helps you detect bugs earlier in the development process.
+
+async/await is essentially a syntactic sugar for promises, which is to say that the async/await keyword is a wrapper over promises. An async function always returns a promise. Even if you omit the Promise keyword, the compiler will wrap your function in an immediately resolved promise.
+
+Here’s an example:
+
+//Snippet 1
+const myAsynFunction = async (url: string): Promise<T> => {
+    const { data } = await fetch(url)
+    return data
+}
+
+//Snippet 2
+const immediatelyResolvedPromise = (url: string) => {
+    const resultPromise = new Promise((resolve, reject) => {
+        resolve(fetch(url))
+    })
+    return  resultPromise
+}
+Although they look different, the code snippets above are more or less equivalent.
+
+async/await simply enables you to write the code more synchronously and unwraps the promise within the same line of code for you. This is powerful when you’re dealing with complex asynchronous patterns.
+
+To get the most out of the async/await syntax, you’ll need a basic understanding of promises.
+
+What is a promise in TypeScript?
+In JavaScript, a “promise” refers to the expectation that something will happen at a particular time, enabling your app to use the result of that future event to perform certain other tasks.
+
+To demonstrate what I mean, I’ll break down a real-world example and translate it into pseudocode, followed by the actual TypeScript code.
+
+Let’s say I have a lawn to mow. I contact a mowing company that promises to mow my lawn in a couple of hours. In turn, I promise to pay them immediately afterward, provided the lawn is properly mowed.
+
+Can you spot the pattern? The first obvious thing to note is that the second event relies entirely on the previous one. If the first event’s promise is fulfilled, the next event’s will be executed. The promise in that event is then either fulfilled, rejected, or remains pending.
+
+
+Mastering Async
+
+
+In JavaScript, asynchronous execution comes in multiple forms. The simplest example is shown below:
+
+Asynchronous code using setTimeout
+
+1. setTimeOut(function() {
+2. console.log('I am an asynchronous message');
+3. }, 1000);
+4.
+5. console.log('I am a Synchronous message')

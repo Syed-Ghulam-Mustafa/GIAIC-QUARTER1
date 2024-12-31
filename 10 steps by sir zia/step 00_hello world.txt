@@ -1,0 +1,5 @@
+let message = "Hello World";// Infering Types, 
+                            //take your cursor on the variable name
+console.log(message);
+
+github.com py ziaukhan ki id nikal k us mein nichy apr 2024 mein created 39 commits in 2 repositories. is waly part mein learn-typescript is mein hain steps.

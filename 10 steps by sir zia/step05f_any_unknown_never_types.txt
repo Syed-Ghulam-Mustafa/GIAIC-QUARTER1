@@ -1,0 +1,104 @@
+
+app.ts
+
+// Any
+
+let myval: any;
+
+myval = true; // OK
+myval = 42; // OK
+myval = "hey!"; // OK
+myval = []; // OK
+myval = {}; // OK
+myval = Math.random; // OK
+myval = null; // OK
+myval = undefined; // OK
+myval = () => { console.log('Hey again!'); }; // OK
+
+
+//Unknown
+
+let value: unknown;
+
+value = true; // OK
+value = 42; // OK
+value = "hey!"; // OK
+value = []; // OK
+value = {}; // OK
+value = Math.random; // OK
+value = null; // OK
+value = undefined; // OK
+value = () => { console.log('Hey again!'); }; // OK
+
+
+// Assigning a value of type unknown to variables of other types
+
+let val: unknown;
+
+const val1: unknown = val; // OK
+const val2: any = val; // OK
+const val3: boolean = val; // Will throw error
+const val4: number = val; // Will throw error
+const val5: string = val; // Will throw error
+const val6: Record<string, any> = val; // Will throw error
+const val7: any[] = val; // Will throw error
+const val8: (...args: any[]) => void = val; // Will throw error
+
+
+// Never
+
+// Function returning never must not have a reachable end point
+function error(message: string): never {
+  throw new Error(message);
+}
+ 
+// Inferred return type is never
+function fail() {
+  return error("Something failed");
+}
+ 
+// Function returning never must not have a reachable end point
+function infiniteLoop(): never {
+  while (true) {}
+}
+
+readme.md (asal app.ts hoti h)
+
+Any Type
+
+any
+TypeScript also has a special type, any, that you can use whenever you don’t want a particular value to cause typechecking errors.
+
+When a value is of type any, you can access any properties of it (which will in turn be of type any), call it like a function, assign it to (or from) a value of any type, or pretty much anything else that’s syntactically legal:
+
+let obj: any = { x: 0 };
+// None of the following lines of code will throw compiler errors.
+// Using `any` disables all further type checking, and it is assumed
+// you know the environment better than TypeScript.
+obj.foo();
+obj();
+obj.bar = 100;
+obj = "hello";
+const n: number = obj;
+Try
+The any type is useful when you don’t want to write out a long type just to convince TypeScript that a particular line of code is okay.
+
+noImplicitAny
+When you don’t specify a type, and TypeScript can’t infer it from context, the compiler will typically default to any.
+
+You usually want to avoid this, though, because any isn’t type-checked. Use the compiler flag noImplicitAny to flag any implicit any as an error.
+
+
+
+What is "unknown" type in typescript?
+
+What is the “unknown” Type in TypeScript?
+In TypeScript, any value can be assigned to the “unknown” type, but without a type assertion, “unknown” can’t be assigned to anything but itself
+
+
+
+Never Type
+
+The never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns. Variables also acquire the type never when narrowed by any type guards that can never be true.
+
+The never type is a subtype of, and assignable to, every type; however, no type is a subtype of, or assignable to, never (except never itself). Even any isn’t assignable to never.
